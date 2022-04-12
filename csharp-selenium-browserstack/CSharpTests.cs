@@ -5,8 +5,8 @@ namespace csharp_selenium_browserstack
     {
         static void Main(string[] args)
         {
-            //SingleTest.execute();
-            //ParallelTests.execute();
+            SingleTest.execute();
+            ParallelTests.execute();
             LocalTest.execute();
         }
     }
