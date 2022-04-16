@@ -1,5 +1,6 @@
 using System;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 namespace csharp_selenium_browserstack
