@@ -12,16 +12,17 @@ namespace csharp_selenium_browserstack
             String BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
             String BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
             IWebDriver driver;
-            OpenQA.Selenium.Safari.SafariOptions capability = new OpenQA.Selenium.Safari.SafariOptions();
-            capability.AddAdditionalCapability("browser", "iPhone");
-            capability.AddAdditionalCapability("device", "iPhone 11");
-            capability.AddAdditionalCapability("realMobile", "true");
-            capability.AddAdditionalCapability("os_version", "14.0");
-            capability.AddAdditionalCapability("name", "BStack-[C_sharp] Sample Test"); // test name
-            capability.AddAdditionalCapability("build", "BStack Build Number 1"); // CI/CD job or build name
-            capability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME);
-            capability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY);
-            driver = new RemoteWebDriver(new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capability);
+            SafariOptions capabilities = new SafariOptions();
+            Dictionary<string, object> browserstackOptions = new Dictionary<string, object>();
+            browserstackOptions.Add("osVersion", "14");
+            browserstackOptions.Add("deviceName", "iPhone 12");
+            browserstackOptions.Add("realMobile", "true");
+            browserstackOptions.Add("local", "false");
+            browserstackOptions.Add("userName", BROWSERSTACK_USERNAME);
+            browserstackOptions.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
+            capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
+
+            driver = new RemoteWebDriver(new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             try
             {
