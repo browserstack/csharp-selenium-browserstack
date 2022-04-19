@@ -1,30 +1,24 @@
 # csharp-selenium-browserstack
 
 ## Prerequisite
----
 <b>Dotnet CLI</b> must be installed on your system. Check the installation exists before running script.
 
 ```
 dotnet --version
 ```
+
 ## Steps to run test sessions
----
-### CLone and build the project
-```
-git clone https://github.com/browserstack/csharp-selenium-browserstack.git
-cd csharp-selenium-browserstack
-dotnet build
-```
-### Configure Credentials in each test files (SingleTest.cs, LocalTest.cs, Paralleltest.cs)
+
+### Configure Credentials in each tests
 ```c#
  // Update your credentials
 String BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
 String BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
 ```
----
+
 ### Run Sigle Test
 i. Navigate to Single.cs </br>
-ii. Configure the capabilites
+ii. Configure the capabilites and use your credentials
 
 ```csharp
 capability.AddAdditionalCapability("browser", "iPhone");
@@ -38,10 +32,9 @@ iii. Run your test <br/>
 ```
 dotnet run Program.cs single
 ```
----
 ### Run Local Test
 i. Navigate to Local.cs </br>
-ii. Configure the capabilites
+ii. Configure the capabilites and use your credentials
 
 ```csharp
 capability.AddAdditionalCapability("browser", "iPhone");
@@ -55,10 +48,9 @@ iii. Run your test <br/>
 ```
 dotnet run Program.cs local
 ```
----
 ### Run Parallel Test
 i. Navigate to Parallel.cs </br>
-ii. Configure the capabilites
+ii. Configure the capabilites and use your credentials
 
 ```csharp
 capability.AddAdditionalCapability("browser", "iPhone");
