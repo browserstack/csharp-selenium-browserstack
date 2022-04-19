@@ -18,7 +18,7 @@ dotnet build
 String BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
 String BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
 ```
-### Run Single Test
+### Run Sigle Test
 i. Navigate to Single.cs </br>
 ii. Configure the capabilites
 
