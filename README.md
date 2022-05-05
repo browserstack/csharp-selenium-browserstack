@@ -15,7 +15,7 @@ dotnet build
 ```
 ### Export your credentials in environment
 ```
-export BROWSERSTACK_USERNAME="BROWSERSTACK_USERNAME" 
+export BROWSERSTACK_USERNAME="BROWSERSTACK_USERNAME"
 export BROWSERSTACK_ACCESS_KEY="BROWSERSTACK_ACCESS_KEY"
 ```
 ### Run Single Test
