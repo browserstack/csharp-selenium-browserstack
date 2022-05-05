@@ -13,10 +13,10 @@ git clone https://github.com/browserstack/csharp-selenium-browserstack.git
 cd csharp-selenium-browserstack
 dotnet build
 ```
-### Configure credentials in each test files (SingleTest.cs, LocalTest.cs, Paralleltest.cs)
-```c#
-String BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
-String BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
+### Export your credentials in environment
+```
+export BROWSERSTACK_USERNAME="BROWSERSTACK_USERNAME" 
+export BROWSERSTACK_ACCESS_KEY="BROWSERSTACK_ACCESS_KEY"
 ```
 ### Run Single Test
 i. Navigate to Single.cs </br>
