@@ -32,7 +32,7 @@ namespace csharp_selenium_browserstack
         static void sampleTestCase(String browser, String browser_version, String os, String os_version, String device, String realmobile, String test_name, String build_name)
         {
             // Update your credentials
-            String BROWSERSTACK_USERNAME =  Environment.GetEnvironmentVariable("BROWSERSTACK_USERNAME");
+            String BROWSERSTACK_USERNAME = Environment.GetEnvironmentVariable("BROWSERSTACK_USERNAME");
             String BROWSERSTACK_ACCESS_KEY = Environment.GetEnvironmentVariable("BROWSERSTACK_ACCESS_KEY");
             switch (browser)
             {
