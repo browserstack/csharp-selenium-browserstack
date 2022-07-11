@@ -23,12 +23,11 @@ i. Navigate to Single.cs </br>
 ii. Configure the capabilites
 
 ```csharp
-capability.AddAdditionalCapability("browser", "iPhone");
-capability.AddAdditionalCapability("device", "iPhone 11");
-capability.AddAdditionalCapability("realMobile", "true");
-capability.AddAdditionalCapability("os_version", "14.0");
-capability.AddAdditionalCapability("name", "BStack-[C_sharp] Sample Test"); // test name
-capability.AddAdditionalCapability("build", "BStack Build Number 1"); // CI/CD job or build name
+Dictionary<string, object> browserstackOptions = new Dictionary<string, object>();
+browserstackOptions.Add("osVersion", "14");
+browserstackOptions.Add("deviceName", "iPhone 12");
+browserstackOptions.Add("realMobile", "true");
+browserstackOptions.Add("local", "false");
 ```
 iii. Run your test <br/>
 ```
@@ -39,12 +38,11 @@ i. Navigate to Local.cs </br>
 ii. Configure the capabilites
 
 ```csharp
-capability.AddAdditionalCapability("browser", "iPhone");
-capability.AddAdditionalCapability("device", "iPhone 11");
-capability.AddAdditionalCapability("realMobile", "true");
-capability.AddAdditionalCapability("os_version", "14.0");
-capability.AddAdditionalCapability("name", "BStack-[C_sharp] Sample Test"); // test name
-capability.AddAdditionalCapability("build", "BStack Build Number 1"); // CI/CD job or build name
+Dictionary<string, object> browserstackOptions = new Dictionary<string, object>();
+browserstackOptions.Add("osVersion", "14");
+browserstackOptions.Add("deviceName", "iPhone 12");
+browserstackOptions.Add("realMobile", "true");
+browserstackOptions.Add("local", "true");
 ```
 iii. Run your test <br/>
 ```
@@ -65,3 +63,4 @@ iii. Run your test <br/>
 ```
 dotnet run Program.cs parallel
 ```
+r

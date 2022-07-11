@@ -1,6 +1,10 @@
 using System.Threading;
 using System;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Safari;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
@@ -37,68 +41,68 @@ namespace csharp_selenium_browserstack
             switch (browser)
             {
                 case "Safari": //If browser is Safari, following capabilities will be passed to 'executetestwithcaps' function
-                    OpenQA.Selenium.Safari.SafariOptions safariCapability = new OpenQA.Selenium.Safari.SafariOptions();
-                    safariCapability.AddAdditionalCapability("os_version", os_version);
-                    safariCapability.AddAdditionalCapability("browser", browser);
-                    safariCapability.AddAdditionalCapability("browser_version", browser_version);
-                    safariCapability.AddAdditionalCapability("os", os);
-                    safariCapability.AddAdditionalCapability("device", device);
-                    safariCapability.AddAdditionalCapability("realMobile", realmobile);
-                    safariCapability.AddAdditionalCapability("name", test_name); // test name
-                    safariCapability.AddAdditionalCapability("build", build_name); // Your tests will be organized within this build
-                    safariCapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME);
-                    safariCapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY);
-                    executetestwithcaps(safariCapability);
+                    SafariOptions safariOptions = new SafariOptions();
+                    Dictionary<string, object> browserstackOptions = new Dictionary<string, object>();
+                    browserstackOptions.Add("osVersion", "14");
+                    browserstackOptions.Add("deviceName", "iPhone 12");
+                    browserstackOptions.Add("realMobile", "true");
+                    browserstackOptions.Add("local", "false");
+                    browserstackOptions.Add("userName", BROWSERSTACK_USERNAME);
+                    browserstackOptions.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
+                    safariOptions.AddAdditionalOption("bstack:options", browserstackOptions);
+                    executetestwithcaps(safariOptions);
                     break;
                 case "Chrome": //If browser is Chrome, following capabilities will be passed to 'executetestwithcaps' function
-                    OpenQA.Selenium.Chrome.ChromeOptions chromeCapability = new OpenQA.Selenium.Chrome.ChromeOptions();
-                    chromeCapability.AddAdditionalCapability("os_version", os_version, true);
-                    chromeCapability.AddAdditionalCapability("browser", browser, true);
-                    chromeCapability.AddAdditionalCapability("browser_version", browser_version, true);
-                    chromeCapability.AddAdditionalCapability("os", os, true);
-                    chromeCapability.AddAdditionalCapability("device", device, true);
-                    chromeCapability.AddAdditionalCapability("realMobile", realmobile, true);
-                    chromeCapability.AddAdditionalCapability("name", test_name, true);
-                    chromeCapability.AddAdditionalCapability("build", build_name, true);
-                    chromeCapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME, true);
-                    chromeCapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY, true);
-                    executetestwithcaps(chromeCapability);
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.BrowserVersion = "99.0";
+                    Dictionary<string, object> browserstackOptionsChrome = new Dictionary<string, object>();
+                    browserstackOptionsChrome.Add("os", "Windows");
+                    browserstackOptionsChrome.Add("osVersion", "10");
+                    browserstackOptionsChrome.Add("local", "false");
+                    browserstackOptionsChrome.Add("seleniumVersion", "3.14.0");
+                    browserstackOptionsChrome.Add("userName", BROWSERSTACK_USERNAME);
+                    browserstackOptionsChrome.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
+                    chromeOptions.AddAdditionalOption("bstack:options", browserstackOptionsChrome);
+                    executetestwithcaps(chromeOptions);
                     break;
                 case "Firefox": //If browser is Firefox, following capabilities will be passed to 'executetestwithcaps' function
-                    OpenQA.Selenium.Firefox.FirefoxOptions firefoxCapability = new OpenQA.Selenium.Firefox.FirefoxOptions();
-                    firefoxCapability.AddAdditionalCapability("os_version", os_version, true);
-                    firefoxCapability.AddAdditionalCapability("browser", browser, true);
-                    firefoxCapability.AddAdditionalCapability("browser_version", browser_version, true);
-                    firefoxCapability.AddAdditionalCapability("os", os, true);
-                    firefoxCapability.AddAdditionalCapability("name", test_name, true);
-                    firefoxCapability.AddAdditionalCapability("build", build_name, true);
-                    firefoxCapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME, true);
-                    firefoxCapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY, true);
-                    executetestwithcaps(firefoxCapability);
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.BrowserVersion = "98.0";
+                    Dictionary<string, object> browserstackOptionsFirefox = new Dictionary<string, object>();
+                    browserstackOptionsFirefox.Add("os", "Windows");
+                    browserstackOptionsFirefox.Add("osVersion", "10");
+                    browserstackOptionsFirefox.Add("local", "false");
+                    browserstackOptionsFirefox.Add("seleniumVersion", "3.10.0");
+                    browserstackOptionsFirefox.Add("userName", BROWSERSTACK_USERNAME);
+                    browserstackOptionsFirefox.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
+                    firefoxOptions.AddAdditionalOption("bstack:options", browserstackOptionsFirefox);
+                    executetestwithcaps(firefoxOptions);
                     break;
                 case "Edge": //If browser is Edge, following capabilities will be passed to 'executetestwithcaps' function
-                    OpenQA.Selenium.Edge.EdgeOptions edgecapability = new OpenQA.Selenium.Edge.EdgeOptions();
-                    edgecapability.AddAdditionalCapability("os_version", os_version);
-                    edgecapability.AddAdditionalCapability("browser", browser);
-                    edgecapability.AddAdditionalCapability("browser_version", browser_version);
-                    edgecapability.AddAdditionalCapability("os", os);
-                    edgecapability.AddAdditionalCapability("name", test_name);
-                    edgecapability.AddAdditionalCapability("build", build_name);
-                    edgecapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME);
-                    edgecapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY);
-                    executetestwithcaps(edgecapability);
+                    EdgeOptions edgeOptions = new EdgeOptions();
+                    edgeOptions.BrowserVersion = "latest";
+                    Dictionary<string, object> browserstackOptionsEdge = new Dictionary<string, object>();
+                    browserstackOptionsEdge.Add("os", "Windows");
+                    browserstackOptionsEdge.Add("osVersion", "10");
+                    browserstackOptionsEdge.Add("local", "false");
+                    browserstackOptionsEdge.Add("seleniumVersion", "3.5.2");
+                    browserstackOptionsEdge.Add("userName", BROWSERSTACK_USERNAME);
+                    browserstackOptionsEdge.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
+                    edgeOptions.AddAdditionalOption("bstack:options", browserstackOptionsEdge);
+                    executetestwithcaps(edgeOptions);
                     break;
                 default: //If browser is IE, following capabilities will be passed to 'executetestwithcaps' function
-                    OpenQA.Selenium.IE.InternetExplorerOptions ieCapability = new OpenQA.Selenium.IE.InternetExplorerOptions();
-                    ieCapability.AddAdditionalCapability("os_version", os_version, true);
-                    ieCapability.AddAdditionalCapability("browser", browser, true);
-                    ieCapability.AddAdditionalCapability("browser_version", browser_version, true);
-                    ieCapability.AddAdditionalCapability("os", os, true);
-                    ieCapability.AddAdditionalCapability("name", test_name, true);
-                    ieCapability.AddAdditionalCapability("build", build_name, true);
-                    ieCapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME, true);
-                    ieCapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY, true);
-                    executetestwithcaps(ieCapability);
+                    ChromeOptions chromeOptions1 = new ChromeOptions();
+                    chromeOptions1.BrowserVersion = "99.0";
+                    Dictionary<string, object> browserstackOptionsDefault = new Dictionary<string, object>();
+                    browserstackOptionsDefault.Add("os", "Windows");
+                    browserstackOptionsDefault.Add("osVersion", "10");
+                    browserstackOptionsDefault.Add("local", "false");
+                    browserstackOptionsDefault.Add("seleniumVersion", "3.14.0");
+                    browserstackOptionsDefault.Add("userName", BROWSERSTACK_USERNAME);
+                    browserstackOptionsDefault.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
+                    chromeOptions1.AddAdditionalOption("bstack:options", browserstackOptionsDefault);
+                    executetestwithcaps(chromeOptions1);
                     break;
             }
         }
