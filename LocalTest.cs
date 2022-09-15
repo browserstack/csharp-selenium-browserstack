@@ -12,8 +12,8 @@ namespace csharp_selenium_browserstack
         public static void execute()
         {
             // Update your credentials
-            String BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
-            String BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
+            String BROWSERSTACK_USERNAME = Environment.GetEnvironmentVariable("BROWSERSTACK_USERNAME");
+            String BROWSERSTACK_ACCESS_KEY = Environment.GetEnvironmentVariable("BROWSERSTACK_ACCESS_KEY");
             IWebDriver driver;
             SafariOptions capabilities = new SafariOptions();
             Dictionary<string, object> browserstackOptions = new Dictionary<string, object>();
