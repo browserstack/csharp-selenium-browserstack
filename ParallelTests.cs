@@ -52,6 +52,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptions.Add("deviceName", "iPhone 12");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("local", "false");
+                    browserstackOptions.Add("buildName", "browserstack-build-1");
                     browserstackOptions.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptions.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     safariOptions.AddAdditionalOption("bstack:options", browserstackOptions);
@@ -64,7 +65,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsChrome.Add("os", "Windows");
                     browserstackOptionsChrome.Add("osVersion", "10");
                     browserstackOptionsChrome.Add("local", "false");
-                    browserstackOptionsChrome.Add("seleniumVersion", "3.14.0");
+                    browserstackOptionsChrome.Add("buildName", "browserstack-build-1");
                     browserstackOptionsChrome.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsChrome.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     chromeOptions.AddAdditionalOption("bstack:options", browserstackOptionsChrome);
@@ -77,7 +78,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsFirefox.Add("os", "Windows");
                     browserstackOptionsFirefox.Add("osVersion", "10");
                     browserstackOptionsFirefox.Add("local", "false");
-                    browserstackOptionsFirefox.Add("seleniumVersion", "3.10.0");
+                    browserstackOptionsFirefox.Add("buildName", "browserstack-build-1");
                     browserstackOptionsFirefox.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsFirefox.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     firefoxOptions.AddAdditionalOption("bstack:options", browserstackOptionsFirefox);
@@ -90,7 +91,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsEdge.Add("os", "Windows");
                     browserstackOptionsEdge.Add("osVersion", "10");
                     browserstackOptionsEdge.Add("local", "false");
-                    browserstackOptionsEdge.Add("seleniumVersion", "3.5.2");
+                    browserstackOptionsEdge.Add("buildName", "browserstack-build-1");
                     browserstackOptionsEdge.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsEdge.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     edgeOptions.AddAdditionalOption("bstack:options", browserstackOptionsEdge);
@@ -103,7 +104,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsDefault.Add("os", "Windows");
                     browserstackOptionsDefault.Add("osVersion", "10");
                     browserstackOptionsDefault.Add("local", "false");
-                    browserstackOptionsDefault.Add("seleniumVersion", "3.14.0");
+                    browserstackOptionsDefault.Add("buildName", "browserstack-build-1");
                     browserstackOptionsDefault.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsDefault.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     chromeOptions1.AddAdditionalOption("bstack:options", browserstackOptionsDefault);
