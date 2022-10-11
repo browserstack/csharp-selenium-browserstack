@@ -11,8 +11,13 @@ namespace csharp_selenium_browserstack
         public static void execute()
         {
             // Update your credentials
-            String BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
-            String BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
+            String? BROWSERSTACK_USERNAME = Environment.GetEnvironmentVariable("BROWSERSTACK_USERNAME");
+            if (BROWSERSTACK_USERNAME is null)
+                BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
+
+            String? BROWSERSTACK_ACCESS_KEY = Environment.GetEnvironmentVariable("BROWSERSTACK_ACCESS_KEY");
+            if (BROWSERSTACK_ACCESS_KEY is null)
+                BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
             IWebDriver driver;
             OpenQA.Selenium.Safari.SafariOptions capability = new OpenQA.Selenium.Safari.SafariOptions();
             capability.AddAdditionalCapability("browser", "iPhone");
@@ -35,7 +40,7 @@ namespace csharp_selenium_browserstack
 
             // Starts the Local instance with the required arguments
             local.start(bsLocalArgs);
-            driver = new RemoteWebDriver(new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capability);
+            driver = new RemoteWebDriver(new Uri("https://hub.browserstack.com/wd/hub/"), capability);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
            
             try
