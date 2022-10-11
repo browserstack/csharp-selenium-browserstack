@@ -36,8 +36,13 @@ namespace csharp_selenium_browserstack
         static void sampleTestCase(String browser, String browser_version, String os, String os_version, String device, String realmobile, String test_name, String build_name)
         {
             // Update your credentials
-            String BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
-            String BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
+            String? BROWSERSTACK_USERNAME = Environment.GetEnvironmentVariable("BROWSERSTACK_USERNAME");
+            if (BROWSERSTACK_USERNAME is null)
+                BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
+
+            String? BROWSERSTACK_ACCESS_KEY = Environment.GetEnvironmentVariable("BROWSERSTACK_ACCESS_KEY");
+            if (BROWSERSTACK_ACCESS_KEY is null)
+                BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
             switch (browser)
             {
                 case "Safari": //If browser is Safari, following capabilities will be passed to 'executetestwithcaps' function
@@ -47,6 +52,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptions.Add("deviceName", "iPhone 12");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("local", "false");
+                    browserstackOptions.Add("buildName", "browserstack-build-1");
                     browserstackOptions.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptions.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     safariOptions.AddAdditionalOption("bstack:options", browserstackOptions);
@@ -59,7 +65,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsChrome.Add("os", "Windows");
                     browserstackOptionsChrome.Add("osVersion", "10");
                     browserstackOptionsChrome.Add("local", "false");
-                    browserstackOptionsChrome.Add("seleniumVersion", "3.14.0");
+                    browserstackOptionsChrome.Add("buildName", "browserstack-build-1");
                     browserstackOptionsChrome.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsChrome.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     chromeOptions.AddAdditionalOption("bstack:options", browserstackOptionsChrome);
@@ -72,7 +78,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsFirefox.Add("os", "Windows");
                     browserstackOptionsFirefox.Add("osVersion", "10");
                     browserstackOptionsFirefox.Add("local", "false");
-                    browserstackOptionsFirefox.Add("seleniumVersion", "3.10.0");
+                    browserstackOptionsFirefox.Add("buildName", "browserstack-build-1");
                     browserstackOptionsFirefox.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsFirefox.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     firefoxOptions.AddAdditionalOption("bstack:options", browserstackOptionsFirefox);
@@ -85,7 +91,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsEdge.Add("os", "Windows");
                     browserstackOptionsEdge.Add("osVersion", "10");
                     browserstackOptionsEdge.Add("local", "false");
-                    browserstackOptionsEdge.Add("seleniumVersion", "3.5.2");
+                    browserstackOptionsEdge.Add("buildName", "browserstack-build-1");
                     browserstackOptionsEdge.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsEdge.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     edgeOptions.AddAdditionalOption("bstack:options", browserstackOptionsEdge);
@@ -98,7 +104,7 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsDefault.Add("os", "Windows");
                     browserstackOptionsDefault.Add("osVersion", "10");
                     browserstackOptionsDefault.Add("local", "false");
-                    browserstackOptionsDefault.Add("seleniumVersion", "3.14.0");
+                    browserstackOptionsDefault.Add("buildName", "browserstack-build-1");
                     browserstackOptionsDefault.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsDefault.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     chromeOptions1.AddAdditionalOption("bstack:options", browserstackOptionsDefault);
@@ -109,15 +115,13 @@ namespace csharp_selenium_browserstack
         //executetestwithcaps function takes capabilities from 'sampleTestCase' function and executes the test
         static void executetestwithcaps(DriverOptions capability)
         {
-            IWebDriver driver = new RemoteWebDriver(new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capability);
+            IWebDriver driver = new RemoteWebDriver(new Uri("https://hub.browserstack.com/wd/hub/"), capability);
             try
             {
                 WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
                 driver.Navigate().GoToUrl("https://bstackdemo.com/");
                 // getting name of the product
-                IWebElement product = driver.FindElement(By.XPath("//*[@id='1']/p"));
-                wait.Until(driver => product.Displayed);
-                String product_on_page = product.Text;
+                String product_on_page = wait.Until(driver => driver.FindElement(By.XPath("//*[@id=\"1\"]/p"))).Text;
                 // clicking the 'Add to Cart' button
                 IWebElement cart_btn = driver.FindElement(By.XPath("//*[@id='1']/div[4]"));
                 wait.Until(driver => cart_btn.Displayed);

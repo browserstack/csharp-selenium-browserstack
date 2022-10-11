@@ -10,8 +10,13 @@ namespace csharp_selenium_browserstack
         public static void execute()
         {
             // Update your credentials
-            String BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
-            String BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
+            String? BROWSERSTACK_USERNAME = Environment.GetEnvironmentVariable("BROWSERSTACK_USERNAME");
+            if (BROWSERSTACK_USERNAME is null)
+                BROWSERSTACK_USERNAME = "BROWSERSTACK_USERNAME";
+
+            String? BROWSERSTACK_ACCESS_KEY = Environment.GetEnvironmentVariable("BROWSERSTACK_ACCESS_KEY");
+            if (BROWSERSTACK_ACCESS_KEY is null)
+                BROWSERSTACK_ACCESS_KEY = "BROWSERSTACK_ACCESS_KEY";
             IWebDriver driver;
             SafariOptions capabilities = new SafariOptions();
             Dictionary<string, object> browserstackOptions = new Dictionary<string, object>();
@@ -19,19 +24,18 @@ namespace csharp_selenium_browserstack
             browserstackOptions.Add("deviceName", "iPhone 12");
             browserstackOptions.Add("realMobile", "true");
             browserstackOptions.Add("local", "false");
+            browserstackOptions.Add("buildName", "browserstack-build-1");
             browserstackOptions.Add("userName", BROWSERSTACK_USERNAME);
             browserstackOptions.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
             capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-            driver = new RemoteWebDriver(new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
+            driver = new RemoteWebDriver(new Uri("https://hub.browserstack.com/wd/hub/"), capabilities);
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             try
             {
                 driver.Navigate().GoToUrl("https://bstackdemo.com/");
                 // getting name of the product
-                IWebElement product = driver.FindElement(By.XPath("//*[@id='1']/p"));
-                wait.Until(driver => product.Displayed);
-                String product_on_page = product.Text;
+                String product_on_page = wait.Until(driver => driver.FindElement(By.XPath("//*[@id=\"1\"]/p"))).Text;
                 // clicking the 'Add to Cart' button
                 IWebElement cart_btn = driver.FindElement(By.XPath("//*[@id='1']/div[4]"));
                 wait.Until(driver => cart_btn.Displayed);
