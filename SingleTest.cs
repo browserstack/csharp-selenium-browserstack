@@ -25,6 +25,7 @@ namespace csharp_selenium_browserstack
             capability.AddAdditionalCapability("os_version", "14.0");
             capability.AddAdditionalCapability("name", "BStack-[C_sharp] Sample Test"); // test name
             capability.AddAdditionalCapability("build", "BStack Build Number 1"); // CI/CD job or build name
+            capability.AddAdditionalCapability("browserstack.source", "csharp:sample-selenium-3:v1.0");
             capability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME);
             capability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY);
             driver = new RemoteWebDriver(new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capability);
