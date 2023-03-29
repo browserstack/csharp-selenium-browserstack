@@ -51,6 +51,7 @@ namespace csharp_selenium_browserstack
                     safariCapability.AddAdditionalCapability("realMobile", realmobile);
                     safariCapability.AddAdditionalCapability("name", test_name); // test name
                     safariCapability.AddAdditionalCapability("build", build_name); // Your tests will be organized within this build
+                    safariCapability.AddAdditionalCapability("browserstack.source", "csharp:sample-selenium-3:v1.0");
                     safariCapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME);
                     safariCapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY);
                     executetestwithcaps(safariCapability);
@@ -65,6 +66,7 @@ namespace csharp_selenium_browserstack
                     chromeCapability.AddAdditionalCapability("realMobile", realmobile, true);
                     chromeCapability.AddAdditionalCapability("name", test_name, true);
                     chromeCapability.AddAdditionalCapability("build", build_name, true);
+                    chromeCapability.AddAdditionalCapability("browserstack.source", "csharp:sample-selenium-3:v1.0");
                     chromeCapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME, true);
                     chromeCapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY, true);
                     executetestwithcaps(chromeCapability);
@@ -77,6 +79,7 @@ namespace csharp_selenium_browserstack
                     firefoxCapability.AddAdditionalCapability("os", os, true);
                     firefoxCapability.AddAdditionalCapability("name", test_name, true);
                     firefoxCapability.AddAdditionalCapability("build", build_name, true);
+                    firefoxCapability.AddAdditionalCapability("browserstack.source", "csharp:sample-selenium-3:v1.0");
                     firefoxCapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME, true);
                     firefoxCapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY, true);
                     executetestwithcaps(firefoxCapability);
@@ -89,6 +92,7 @@ namespace csharp_selenium_browserstack
                     edgecapability.AddAdditionalCapability("os", os);
                     edgecapability.AddAdditionalCapability("name", test_name);
                     edgecapability.AddAdditionalCapability("build", build_name);
+                    edgecapability.AddAdditionalCapability("browserstack.source", "csharp:sample-selenium-3:v1.0");
                     edgecapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME);
                     edgecapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY);
                     executetestwithcaps(edgecapability);
@@ -101,6 +105,7 @@ namespace csharp_selenium_browserstack
                     ieCapability.AddAdditionalCapability("os", os, true);
                     ieCapability.AddAdditionalCapability("name", test_name, true);
                     ieCapability.AddAdditionalCapability("build", build_name, true);
+                    ieCapability.AddAdditionalCapability("browserstack.source", "csharp:sample-selenium-3:v1.0");
                     ieCapability.AddAdditionalCapability("browserstack.user", BROWSERSTACK_USERNAME, true);
                     ieCapability.AddAdditionalCapability("browserstack.key", BROWSERSTACK_ACCESS_KEY, true);
                     executetestwithcaps(ieCapability);
