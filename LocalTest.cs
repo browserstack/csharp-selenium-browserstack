@@ -27,6 +27,8 @@ namespace csharp_selenium_browserstack
             browserstackOptions.Add("realMobile", "true");
             browserstackOptions.Add("local", "true");
             browserstackOptions.Add("buildName", "browserstack-build-1");
+            browserstackOptions.Add("sessionName", "BStack local test");
+            browserstackOptions.Add("source", "csharp:sample-sdk:v1.0");
             browserstackOptions.Add("userName", BROWSERSTACK_USERNAME);
             browserstackOptions.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
             capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
