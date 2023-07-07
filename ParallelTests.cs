@@ -53,6 +53,8 @@ namespace csharp_selenium_browserstack
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("local", "false");
                     browserstackOptions.Add("buildName", "browserstack-build-1");
+                    browserstackOptions.Add("sessionName", "BStack parallel test");
+                    browserstackOptions.Add("source", "csharp:sample-sdk:v1.0");
                     browserstackOptions.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptions.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     safariOptions.AddAdditionalOption("bstack:options", browserstackOptions);
@@ -66,6 +68,8 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsChrome.Add("osVersion", "10");
                     browserstackOptionsChrome.Add("local", "false");
                     browserstackOptionsChrome.Add("buildName", "browserstack-build-1");
+                    browserstackOptions.Add("sessionName", "BStack parallel test");
+                    browserstackOptions.Add("source", "csharp:sample-sdk:v1.0");
                     browserstackOptionsChrome.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsChrome.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     chromeOptions.AddAdditionalOption("bstack:options", browserstackOptionsChrome);
@@ -79,6 +83,8 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsFirefox.Add("osVersion", "10");
                     browserstackOptionsFirefox.Add("local", "false");
                     browserstackOptionsFirefox.Add("buildName", "browserstack-build-1");
+                    browserstackOptions.Add("sessionName", "BStack parallel test");
+                    browserstackOptions.Add("source", "csharp:sample-sdk:v1.0");
                     browserstackOptionsFirefox.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsFirefox.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     firefoxOptions.AddAdditionalOption("bstack:options", browserstackOptionsFirefox);
@@ -92,6 +98,8 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsEdge.Add("osVersion", "10");
                     browserstackOptionsEdge.Add("local", "false");
                     browserstackOptionsEdge.Add("buildName", "browserstack-build-1");
+                    browserstackOptions.Add("sessionName", "BStack parallel test");
+                    browserstackOptions.Add("source", "csharp:sample-sdk:v1.0");
                     browserstackOptionsEdge.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsEdge.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     edgeOptions.AddAdditionalOption("bstack:options", browserstackOptionsEdge);
@@ -105,6 +113,8 @@ namespace csharp_selenium_browserstack
                     browserstackOptionsDefault.Add("osVersion", "10");
                     browserstackOptionsDefault.Add("local", "false");
                     browserstackOptionsDefault.Add("buildName", "browserstack-build-1");
+                    browserstackOptions.Add("sessionName", "BStack parallel test");
+                    browserstackOptions.Add("source", "csharp:sample-sdk:v1.0");
                     browserstackOptionsDefault.Add("userName", BROWSERSTACK_USERNAME);
                     browserstackOptionsDefault.Add("accessKey", BROWSERSTACK_ACCESS_KEY);
                     chromeOptions1.AddAdditionalOption("bstack:options", browserstackOptionsDefault);
