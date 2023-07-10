@@ -1,13 +1,13 @@
 # This job is to test different profiles in sdk branch against Pull Requests raised
-# This workflow targets C#
+# This workflow targets c-sharp-selenium
 
 name: C-sharp SDK Test workflow on workflow_dispatch
 
 on:
   workflow_dispatch:
     inputs:
-      pull_request_number:
-        description: 'The pull request number to build'
+      commit_sha:
+        description: 'The full commit id to build'
         required: true
 
 jobs:
