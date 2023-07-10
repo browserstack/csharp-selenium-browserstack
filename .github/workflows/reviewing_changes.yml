@@ -1,5 +1,5 @@
 # This job is to test different profiles in sdk branch against Pull Requests raised
-# This workflow targets nunit
+# This workflow targets C#
 
 name: C-sharp SDK Test workflow on workflow_dispatch
 
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: status-check-in-progress
         env:
-          job_name: NUnit Repo ${{ matrix.dotnet }} - ${{ matrix.os }} Sample
+          job_name: C-sharp-selenium Repo ${{ matrix.dotnet }} - ${{ matrix.os }} Sample
           commit_sha: ${{ github.event.inputs.commit_sha }}
         with:
           github-token: ${{ github.token }}
