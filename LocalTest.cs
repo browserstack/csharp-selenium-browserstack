@@ -48,10 +48,10 @@ namespace csharp_selenium_browserstack
            
             try
             {
-                driver.Navigate().GoToUrl("http://bs-local.com:45691/check");
-                // getting body content
-                String body_text = driver.FindElement(By.TagName("body")).Text;
-                if (body_text == "This is an internal server for BrowserStack Local")
+                driver.Navigate().GoToUrl("http://bs-local.com:45454/");
+                // getting page title
+                String page_title = driver.Title;
+                if (page_title == "BrowserStack Local")
                 {
                     ((IJavaScriptExecutor)driver).ExecuteScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"passed\", \"reason\": \"Local test ran successful\"}}");
                 }
